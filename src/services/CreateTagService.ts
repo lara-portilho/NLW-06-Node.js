@@ -2,10 +2,10 @@ import { getCustomRepository } from 'typeorm';
 import { TagsRepositories } from '../repositories/TagsRepositories';
 
 class CreateTagService {
-    async execute(name: string){
-        const tagsRepository =  getCustomRepository(TagsRepositories);
+    async execute(name: string) {
+        const tagsRepository = getCustomRepository(TagsRepositories);
 
-        if(!name){
+        if (!name) {
             throw new Error("Tag name invalid");
         }
 
@@ -13,7 +13,7 @@ class CreateTagService {
             name,
         });
 
-        if(tagAlreadyExists){
+        if (tagAlreadyExists) {
             throw new Error("Tag aready exists");
         }
 
